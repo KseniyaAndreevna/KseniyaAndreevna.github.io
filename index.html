@@ -1,19 +1,73 @@
 <!doctype html>
-<html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <title>
+    Описание || Инструкция
+    </title>
+    <style>
+        body{
+            background-color: #CDC9A5; /* Цвет фона веб-страницы #CDC0B0 */
+            font-family: Arial;
+            font-size: 16px;
+        }
+
+        h2{
+            color: #2F4F4F;
+        }
+
+        .colortext {
+         color: blue; /* Красный цвет выделения */
+       }
+    </style>
 </head>
 <body>
-    Texture &laquo;Lib&raquo; site!
+    <div style="width: 800px; margin:0 auto; box-shadow: 0 0 5px; background: white; padding:10px 40px 30px 40px; text-align: justify;">
+        <h1>Описание библиотеки</h1>
+        <p>
+        Данная страница посвящена описанию библиотеки для анализа текстур <span class="colortext">TexturalAnalysis</span>.<br>
+        Библиотека решает следующие задачи: <br>
+        <ul>
+            <li>анализ текстур на основе текстурных признаков<br>
+            <li>R/S - анализ<br>
+            <li>анализ текстур на основе расчета фрактальной размерности<br>
+        </ul>
+        Программно текстура задается в виде матрицы. значениями которой являются интенсивности пикселей в интервале от 0 до 255, для черно-белого изображения.<br>
+        <p>
+        <h1>Инструкция</h1>
+        <h2>Анализ текстур на основе текстурных признаков</h2>
+        Для следуюших признаков на вход необходимо передать матрицу, соответствующую изображению, на выходе получается новая матрица, соответствующая результату применения выбранного признака. Для этого необходимо подключить один из файлов, соответствующих признаку и вызвать соответсвующую функцию.<br>
+        <ul>
+            <li>Признаки, использующие матрицу смежности значений яркости: <br>
+                <ul>
+                    <li>энергия <span class="colortext">“Energy.h”</span><br>
+                    <li>энтропия <span class="colortext">“Entropy.h”</span><br>
+                    <li>максимальная вероятность <span class="colortext">“MaxProbability.h”</span><br>
+                    <li>контраст <span class="colortext">“Contrast.h”</span><br>
+                    <li>обратный момент <span class="colortext">“Moment.h”</span><br>
+                </ul>
+            <li>Признаки, описывающие текстуры длинами серий<br>
+                <ul>
+                    <li>обратные моменты увеличены при коротких сериях <span class="colortext">“Haralic1.h”</span><br>
+                    <li>моменты увеличены при длинных сериях <span class="colortext">“Haralic2.h”</span><br>
+                    <li>неоднородность яркости <span class="colortext">“Haralic3.h”</span><br>
+                    <li>неоднородность длины серий <span class="colortext">“Haralic4.h”</span><br>
+                    <li>доля изображения в сериях <span class="colortext">“Haralic5.h”</span><br>
+                </ul>
+        </ul>
+        <h2>R/S - анализ</h2>
+        Для применения R/S-анализа, необходимо подключить файл <span class="colortext">“RS.h”</span> и воспользоваться функцией <span class="colortext">calculateHirstCoefficient ( Image, x1, y1, x2, y2 )</span>, которая возвращает коэффициент Хёрста; где x1, y1, x2, y2 - координаты точек начала и конца отрезка, на котором необходмо провести вычисления. Для того, чтобы получить точки для построения графиков, необходимо воспользоваться функцией <span class="colortext">apply ( Image, x1, y1, x2, y2 )</span>.<br>
 
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <h2>Aнализ текстур на основе расчета фрактальной размерности</h2>
+    </div>
 
-  ga('create', 'UA-51182579-1', 'kseniyaandreevna.github.io');
-  ga('send', 'pageview');
-</script>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-51182579-1', 'kseniyaandreevna.github.io');
+      ga('send', 'pageview');
+    </script>
 </body>
-</html>
+<html>
